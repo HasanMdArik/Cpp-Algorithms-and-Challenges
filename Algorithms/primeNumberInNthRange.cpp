@@ -1,15 +1,18 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main()
 {
-    cout << "Count Prime number to n range" << endl
+    cout << "Count Prime number from 2 to nth range" << endl
          << "n > ";
-    int number = 1000000;
+    int number;
     cin >> number;
     cout << endl;
-    int primeNumbersSize = number / 2;
+    int primeNumbersSize = sqrt(number) * 2;
     int primeNumbers[primeNumbersSize] = {2};
     int index = 1;
+
+    cout << 2 << endl;
 
     for (int i = 2; i <= number; i++)
     {

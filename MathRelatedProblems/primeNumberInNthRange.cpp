@@ -3,18 +3,17 @@
 using namespace std;
 int main()
 {
-    cout << "Count Prime number from 2 to nth range" << endl
-         << "n > ";
-    int number;
-    cin >> number;
+    cout << "Count Prime number from x to nth range" << endl
+         << "start, end > ";
+    int start, end;
+    cin >> start >> end;
+    int *primeNumbers = NULL;
+    int range = end - start;
     cout << endl;
-    int primeNumbersSize = sqrt(number) * 2;
-    int primeNumbers[primeNumbersSize] = {2};
+    int primeNumbersSize = sqrt(end) * 2;
+    primeNumbers = new int[range]{2};
     int index = 1;
-
-    cout << 2 << endl;
-
-    for (int i = 2; i <= number; i++)
+    for (int i = 2; i <= end; i++)
     {
         bool isPrime = true;
         for (int j = 0; j < primeNumbersSize; j++)
@@ -33,12 +32,22 @@ int main()
                 break;
             }
         }
-        if (isPrime == true)
+        if (isPrime == true && i >= start)
         {
             primeNumbers[index] = i;
-            cout << i << endl;
             index++;
         }
     }
+
+    // Printing the prime numbers
+
+    for (int i = 0; i < primeNumbersSize; i++)
+    {
+        if (primeNumbers[i] >= start)
+        {
+            cout << primeNumbers[i] << endl;
+        }
+    }
+
     return 0;
 }

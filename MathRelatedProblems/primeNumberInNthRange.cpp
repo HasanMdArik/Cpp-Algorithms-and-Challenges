@@ -10,7 +10,7 @@ int main()
     int *primeNumbers = NULL;
     int range = end - start;
     cout << endl;
-    int primeNumbersSize = sqrt(end) * 2;
+    int primeNumbersSize = sqrt(end);
     primeNumbers = new int[range]{2};
     int index = 1;
     for (int i = 2; i <= end; i++)

@@ -1,4 +1,3 @@
-.vscode
 # Ignore all
 *
 
@@ -9,7 +8,8 @@
 # Unignore all dirs
 !*/
 
-# Ignore binary, out and exe files
+# Ignore binary, out and exe files and Vscode's folder
 *.exe
 *.bin
 *.out
+.vscode

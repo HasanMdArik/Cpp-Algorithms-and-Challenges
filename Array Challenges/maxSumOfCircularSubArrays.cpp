@@ -1,15 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int kadane(int array[], int size)
+int maxSumOfSubArrays(int array[], int size)
 {
-
     int maxSum = INT32_MIN;
     int currentSum = 0;
+    int limit = (size * 2) - 1;
 
-    for (int i = 0; i < size; i++)
+    if (array[0] < 0 || array[size - 1] < 0)
     {
-        currentSum += array[i];
+        limit /= 2;
+        limit += 1;
+    }
+
+    for (int i = 0; i < limit; i++)
+    {
+        int index = i;
+        if (index >= size)
+        {
+            index -= size;
+        }
+        currentSum += array[index];
         if (currentSum < 0)
             currentSum = 0;
         maxSum = max(maxSum, currentSum);
@@ -29,21 +40,7 @@ int main(int argc, const char **argv)
         cin >> array[i];
     }
 
-    int wrapSum, nonWrapSum;
-
-    nonWrapSum = kadane(array, size);
-
-    int totalSum = 0;
-
-    for (int i = 0; i < size; i++)
-    {
-        totalSum += array[i];
-        array[i] = -array[i];
-    }
-
-    wrapSum = totalSum + kadane(array, size);
-
-    cout << max(wrapSum, nonWrapSum) << endl;
+    cout << maxSumOfSubArrays(array, size) << endl;
 
     return 0;
 }

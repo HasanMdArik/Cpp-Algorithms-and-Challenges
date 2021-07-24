@@ -3,11 +3,14 @@ using namespace std;
 
 bool hasPairSum(int array[], int size, int targetValue)
 {
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
-        if ((array[i] + array[i - 1]) == targetValue)
+        for (int j = 0; j < size; j++)
         {
-            return true;
+            if ((array[i] + array[j]) == targetValue)
+            {
+                return true;
+            }
         }
     }
     return false;

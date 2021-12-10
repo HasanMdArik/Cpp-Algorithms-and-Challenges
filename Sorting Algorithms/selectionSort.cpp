@@ -1,43 +1,63 @@
 #include <iostream>
 using namespace std;
 
-void SelectionSort(int array[], int arraySize)
-{
-    for (int i = 0; i < (arraySize - 1); i++)
-    {
+// Selection sort works by finding the minimum element(in this case minimum number of the array)
+// and swaps it with the number at the begining and then ignores the first number and does it again and again...
 
-        for (int j = i + 1; j < arraySize; j++)
+void selectionSort(int array[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        int minElement = INT32_MAX;
+        int indexOfMin = -1;
+        for (int j = i; j < size; j++)
         {
-            if (array[i] > array[j])
+            minElement = min(minElement, array[j]);
+            if (minElement == array[j])
             {
-                int temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
+                indexOfMin = j;
             }
         }
-    }
 
-    return;
+        int temp = array[i];
+        array[i] = minElement;
+        array[indexOfMin] = temp;
+    }
 }
 
 int main(int argc, char const *argv[])
 {
-    int size;
-    cin >> size;
-
-    int *array = new int[size];
-
-    for (int i = 0; i < size; i++)
+    int array[] = {2, 4, 5, 3, 2, 5, 1, 5, 6, 2, 3};
+    int lengthOfArray = sizeof(array) / sizeof(int);
+    cout << "Unsorted Array: [";
+    for (int i = 0; i < lengthOfArray; i++)
     {
-        cin >> array[i];
+        if (i == 0)
+        {
+            cout << array[i];
+        }
+        else
+        {
+            cout << ", " << array[i];
+        }
     }
+    cout << "]\n";
 
-    SelectionSort(array, size);
+    selectionSort(array, lengthOfArray);
 
-    for (int i = 0; i < size; i++)
+    cout << "Sorted Array: [";
+    for (int i = 0; i < lengthOfArray; i++)
     {
-        cout << array[i] << endl;
+        if (i == 0)
+        {
+            cout << array[i];
+        }
+        else
+        {
+            cout << ", " << array[i];
+        }
     }
+    cout << "]\n";
 
     return 0;
 }

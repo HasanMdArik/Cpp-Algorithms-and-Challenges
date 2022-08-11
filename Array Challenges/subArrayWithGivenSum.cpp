@@ -27,6 +27,10 @@ int main(int argc, const char **argv)
                 startIndex = i;
                 break;
             }
+            else if (sumOfSubArray > sum)
+            {
+                break;
+            }
         }
         if (startIndex >= 0)
         {

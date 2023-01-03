@@ -21,36 +21,19 @@ void bubbleSort(int array[], int size)
 
 int main(int argc, char const *argv[])
 {
-    int array[] = {2, 4, 5, 3, 2, 5, 1, 5, 6, 2, 3};
-    int lengthOfArray = sizeof(array) / sizeof(int);
-    cout << "Unsorted Array: [";
-    for (int i = 0; i < lengthOfArray; i++)
+    int n;
+    cin >> n;
+    int array[n];
+    for (int i = 0; i < n; ++i)
     {
-        if (i == 0)
-        {
-            cout << array[i];
-        }
-        else
-        {
-            cout << ", " << array[i];
-        }
+        cin >> array[i];
     }
-    cout << "]\n";
 
-    bubbleSort(array, lengthOfArray);
+    bubbleSort(array, n);
 
-    cout << "Sorted Array: [";
-    for (int i = 0; i < lengthOfArray; i++)
+    for (int i = 0; i < n; ++i)
     {
-        if (i == 0)
-        {
-            cout << array[i];
-        }
-        else
-        {
-            cout << ", " << array[i];
-        }
+        cout << array[i] << " ";
     }
-    cout << "]\n";
     return 0;
 }

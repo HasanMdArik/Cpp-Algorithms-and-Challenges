@@ -18,27 +18,18 @@ void insertionSort(int array[], int size)
 
 int main(int argc, char const *argv[])
 {
-    int size;
-    cin >> size;
-
-    int array[size];
-
-    for (int i = 0; i < size; i++)
+    int n;
+    cin >> n;
+    int array[n];
+    for (int i = 0; i < n; ++i)
     {
         cin >> array[i];
     }
+    insertionSort(array, n);
 
-    insertionSort(array, size);
-
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; ++i)
     {
-        if (i > 0)
-        {
-            cout << ", ";
-        }
-        cout << array[i];
+        cout << array[i] << " ";
     }
-    cout << endl;
-
     return 0;
 }
